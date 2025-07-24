@@ -346,12 +346,12 @@ function displayJobs(jobs) {
         const statusBadge = `<span class="status-badge ${statusClass}">${job.status}</span>`;
         row.innerHTML = `
             <td>${escapeHtml(job.jobName)}</td>
+            <td class="details-column">${renderDetails(job)}</td>
             <td>${escapeHtml(job.country)}</td>
             <td>${escapeHtml(job.neto)}</td>
             <td>${escapeHtml(job.accommodation)}</td>
             <td>${escapeHtml(job.necessary)}</td>
             <td>${statusBadge}</td>
-            <td>${renderDetails(job)}</td>
         `;
         tbody.appendChild(row);
     });

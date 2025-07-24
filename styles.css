@@ -323,21 +323,21 @@ body {
 }
 
 /* Стили для деталей в таблице */
-.jobs-table td:last-child {
+.jobs-table td.details-column {
     max-width: 400px;
     font-size: 13px;
     line-height: 1.6;
 }
 
-.jobs-table td:last-child div {
+.jobs-table td.details-column div {
     margin-bottom: 8px;
 }
 
-.jobs-table td:last-child div:last-child {
+.jobs-table td.details-column div:last-child {
     margin-bottom: 0;
 }
 
-.jobs-table td:last-child b {
+.jobs-table td.details-column b {
     color: #475569;
     font-weight: 600;
 }
@@ -348,7 +348,7 @@ body {
         padding: 16px;
     }
     
-    .jobs-table td:last-child {
+    .jobs-table td.details-column {
         max-width: 300px;
     }
     
@@ -419,7 +419,7 @@ body {
         padding: 12px 8px;
     }
     
-    .jobs-table td:last-child {
+    .jobs-table td.details-column {
         max-width: 200px;
         font-size: 11px;
     }
@@ -483,7 +483,7 @@ body {
         padding: 8px 6px;
     }
     
-    .jobs-table td:last-child {
+    .jobs-table td.details-column {
         max-width: 150px;
         font-size: 10px;
     }
