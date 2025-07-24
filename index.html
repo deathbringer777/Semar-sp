@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semar Sp - Вакансии</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <span>Semar Sp</span>
+            </div>
+            <div class="filters-container">
+                <div class="country-filter-container">
+                    <label for="countryFilter" class="filter-label">
+                        <i class="fas fa-globe"></i>
+                        Фильтр по странам
+                    </label>
+                    <div class="dropdown-container">
+                        <button class="dropdown-button" id="dropdownButton">
+                            <span id="selectedCountries">Все страны</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <div class="dropdown-header">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="selectAllCountries" checked>
+                                    <span class="checkmark"></span>
+                                    Выбрать все
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="countries-list" id="countriesList">
+                                <!-- Countries will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-filter-container">
+                    <label for="statusFilter" class="filter-label">
+                        <i class="fas fa-tasks"></i>
+                        Фильтр по статусу
+                    </label>
+                    <div class="dropdown-container">
+                        <button class="dropdown-button" id="statusDropdownButton">
+                            <span id="selectedStatuses">В работе, Срочно</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="dropdown-content" id="statusDropdownContent">
+                            <div class="dropdown-header">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="selectAllStatuses">
+                                    <span class="checkmark"></span>
+                                    Выбрать все
+                                </label>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <div class="statuses-list" id="statusesList">
+                                <!-- Statuses will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table class="jobs-table">
+                <thead>
+                    <tr>
+                        <th>Вакансия</th>
+                        <th>Страна</th>
+                        <th>Нетто</th>
+                        <th>Жильё</th>
+                        <th>Места</th>
+                        <th>Статус</th>
+                        <th>Детали</th>
+                    </tr>
+                </thead>
+                <tbody id="jobsTableBody">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Загрузка данных...</p>
+        </div>
+
+        <!-- No data message -->
+        <div id="noData" class="no-data" style="display: none;">
+            <i class="fas fa-inbox"></i>
+            <p>Нет данных для отображения</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

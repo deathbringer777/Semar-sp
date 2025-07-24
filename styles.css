@@ -1,0 +1,495 @@
+/* Оставляю только нужные стили для таблицы и хедера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background: white;
+    border-radius: 12px;
+    padding: 24px 30px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.logo i {
+    font-size: 28px;
+    color: #3b82f6;
+}
+
+/* Контейнер для фильтров */
+.filters-container {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+/* Стили для фильтра по странам */
+.country-filter-container,
+.status-filter-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 180px;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filter-label i {
+    color: #3b82f6;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 12px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dropdown-button:hover {
+    border-color: #3b82f6;
+}
+
+.dropdown-button.active {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-header {
+    padding: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: #f1f5f9;
+}
+
+.countries-list,
+.statuses-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Стили для чекбоксов */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #1e293b;
+    padding: 8px 12px;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox-container:hover {
+    background: #f8fafc;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+    background: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.table-container {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.jobs-table th {
+    background: #f8fafc;
+    color: #475569;
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.jobs-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.jobs-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.jobs-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.jobs-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.status-urgent {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.status-working {
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.status-completed {
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.status-paused {
+    background: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fed7aa;
+}
+
+.status-default {
+    background: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.no-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-data i {
+    font-size: 48px;
+    color: #cbd5e1;
+    margin-bottom: 16px;
+}
+
+.no-data p {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Стили для деталей в таблице */
+.jobs-table td:last-child {
+    max-width: 400px;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.jobs-table td:last-child div {
+    margin-bottom: 8px;
+}
+
+.jobs-table td:last-child div:last-child {
+    margin-bottom: 0;
+}
+
+.jobs-table td:last-child b {
+    color: #475569;
+    font-weight: 600;
+}
+
+/* Мобильная версия */
+@media (max-width: 1024px) {
+    .container {
+        padding: 16px;
+    }
+    
+    .jobs-table td:last-child {
+        max-width: 300px;
+    }
+    
+    .filters-container {
+        gap: 12px;
+    }
+    
+    .country-filter-container,
+    .status-filter-container {
+        min-width: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+    }
+    
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 16px;
+        gap: 16px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .logo i {
+        font-size: 24px;
+    }
+    
+    .filters-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .country-filter-container,
+    .status-filter-container {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .dropdown-button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+    
+    .filter-label {
+        font-size: 11px;
+    }
+    
+    .table-container {
+        border-radius: 8px;
+        overflow-x: auto;
+    }
+    
+    .jobs-table {
+        font-size: 12px;
+        min-width: 600px;
+    }
+    
+    .jobs-table th,
+    .jobs-table td {
+        padding: 12px 8px;
+    }
+    
+    .jobs-table td:last-child {
+        max-width: 200px;
+        font-size: 11px;
+    }
+    
+    .status-badge {
+        padding: 4px 8px;
+        font-size: 10px;
+    }
+    
+    .loading,
+    .no-data {
+        padding: 40px 16px;
+        border-radius: 8px;
+    }
+    
+    .spinner {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 12px;
+    }
+    
+    .loading p,
+    .no-data p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 8px;
+    }
+    
+    .header {
+        padding: 16px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .logo i {
+        font-size: 20px;
+    }
+    
+    .dropdown-button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+    
+    .filter-label {
+        font-size: 10px;
+    }
+    
+    .jobs-table {
+        font-size: 11px;
+        min-width: 500px;
+    }
+    
+    .jobs-table th,
+    .jobs-table td {
+        padding: 8px 6px;
+    }
+    
+    .jobs-table td:last-child {
+        max-width: 150px;
+        font-size: 10px;
+    }
+    
+    .status-badge {
+        padding: 3px 6px;
+        font-size: 9px;
+    }
+} 
