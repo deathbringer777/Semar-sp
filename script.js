@@ -5,6 +5,8 @@ let selectedStatuses = new Set(['В работе', 'Срочно']); // Хран
 
 // API URL
 const API_URL = 'https://willi-work.emale.uno/job-matcher/all-data';
+// Если возникнут проблемы с CORS, используй прокси:
+// const API_URL = 'https://cors-anywhere.herokuapp.com/https://willi-work.emale.uno/job-matcher/all-data';
 
 document.addEventListener('DOMContentLoaded', function() {
     loadJobs();
